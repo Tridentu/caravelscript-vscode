@@ -1,0 +1,92 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "CaravelScript",
+	"patterns": [
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#storage"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#preprocessors"
+		}
+	],
+	"repository": {
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.caravelscript",
+				"match": "\\b(YES|NO|zilch)\\b"
+			},
+			{
+				"name": "constant.numeric.caravelscript",
+				"match": "\\b(\\d+|0x[0-9a-zA-Z]+)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.other.caravelscript",
+				"match": "\\b(language|compiler|ib|license|section|metasection|output)\\b"
+			},
+			{
+				"name": "keyword.operator.caravelscript",
+				"match": "\\b(\\+|\\-|\\*|\\/|\\^|\\%)\\b"
+			}]
+		},
+		"storage": {
+			"patterns": [{
+				"name": "storage.type.caravelscript",
+				"match": "\\b(projectstruct|varc|var)\\b"
+			},
+			{
+				"name": "storage.type.modifier",
+				"match": "\\b(pub|priv|const)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.caravelscript",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.caravelscript",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.caravelscript",
+					"begin": "^(\/\\#)",
+					"end": "(\\#\/)$",
+					"patterns": [
+
+					]
+				},
+				{
+					"name": "comment.line.number-sign.caravelscript",
+					"match": "^(\\#)(\\.*)$"
+				}
+			]
+		},
+		"preprocessors": {
+			"patterns": [
+				{
+					"name": "meta.preprocessor.string",
+					"match": "^(\\(\\#([a-z]+)\\))"
+				}
+			]
+		}
+	},
+	"scopeName": "source.caravelscript"
+}

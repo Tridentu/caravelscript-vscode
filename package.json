@@ -1,0 +1,61 @@
+{
+  "name": "caravelscript",
+  "displayName": "CaravelScript",
+  "description": "Official support for CaravelScript in VSCode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "dependencies": {
+    "vscode-languageserver": "^8.0.2",
+    "vscode-languageclient": "^8.0.2",
+    "vscode-languageserver-textdocument": "1.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tridentu/caravelscript-vscode.git"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
+    "postinstall": "cd server \n npm install \n cd ..",
+    "test": "sh ./scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.25",
+    "@types/vscode": "^1.51.0",
+    "tslint": "^5.16.0",
+    "typescript": "4.8.2"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "caravelscript",
+        "aliases": [
+          "CaravelScript",
+          "caravelscript"
+        ],
+        "extensions": [
+          ".caras",
+          ".carascript"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "activationEvents": [
+      "onLanguage:caravelscript"
+    ],
+    "grammars": [
+      {
+        "language": "caravelscript",
+        "scopeName": "source.caravelscript",
+        "path": "./syntaxes/caravelscript.tmLanguage.json"
+      }
+    ]
+  }
+}
